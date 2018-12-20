@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import TodosContext from '../context';
 
 export default function TodoForm() {
@@ -15,7 +16,7 @@ export default function TodoForm() {
     }, [currentTodo.id])
 
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         if (currentTodo.text) {
             dispatch({ type: "UPDATE_TODO", payload: todo })

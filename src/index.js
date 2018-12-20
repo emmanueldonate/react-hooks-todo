@@ -25,7 +25,7 @@ const App = () => {
 
     const initialState = useContext(TodosContext);
     const [state, dispatch] = useReducer(todosReducer, initialState);
-    const savedTodos = useAPI("https://todos-api-dadfjusxlw.now.sh");
+    const savedTodos = useAPI("https://todos-api-dadfjusxlw.now.sh/todos");
 
     useEffect(() => {
         dispatch({

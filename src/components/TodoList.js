@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import axios from 'axios';
 import TodosContext from '../context';
 
 export default function TodoList() {
@@ -26,7 +27,11 @@ export default function TodoList() {
                             alt="Edit Icon"
                             className="h-6"/>
                   </button>
-                  <button onClick={() => dispatch({ type: "REMOVE_TODO", payload: todo })}>
+                  <button onClick={async () => {
+                      await axios.delete
+                      (`https://todos-api-dadfjusxlw.now.sh/todos/${todo.id}`);
+                      dispatch({ type: "REMOVE_TODO", payload: todo })}
+                  }>
                       <img src="https://icon.now.sh/delete/8b0000"
                             alt="Delete Icon"
                             className="h-6"/>
